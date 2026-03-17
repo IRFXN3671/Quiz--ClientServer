@@ -158,11 +158,23 @@ def receiver(sock: socket.socket) -> None:
 
             elif line.startswith("FINAL "):
                 payload = line[6:].strip()
-                winner, score = payload.rsplit("|", 1) if "|" in payload else (payload, "?")
-                print_separator("═")
-                print(f"\n  🎉  GAME OVER!")
-                print(f"  🏆  Winner: {winner}  |  Score: {score} pts")
-                print_separator("═")
+                # Tie format:    FINAL TIE|name1, name2|score
+                # Winner format: FINAL winner|score
+                if payload.startswith("TIE|"):
+                    # strip leading "TIE|", then rsplit to get names vs score
+                    rest = payload[4:]                          # "name1, name2|50"
+                    tied_names, score = rest.rsplit("|", 1)
+                    print_separator("═")
+                    print(f"\n  🎉  GAME OVER!")
+                    print(f"  🤝  IT'S A TIE! — {tied_names}")
+                    print(f"  🏆  Shared score: {score} pts")
+                    print_separator("═")
+                else:
+                    winner, score = payload.rsplit("|", 1) if "|" in payload else (payload, "?")
+                    print_separator("═")
+                    print(f"\n  🎉  GAME OVER!")
+                    print(f"  🏆  Winner: {winner}  |  Score: {score} pts")
+                    print_separator("═")
                 print("  Thanks for playing! See you next time. 👋")
                 running = False
                 answer_window_open.set()   # unblock input loop so it can exit

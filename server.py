@@ -265,11 +265,22 @@ def run_game() -> None:
         scores_snapshot = dict(scores)
 
     if scores_snapshot:
-        winner, top_score = max(scores_snapshot.items(), key=lambda x: x[1])
+        top_score = max(scores_snapshot.values())
+        winners   = [p for p, s in scores_snapshot.items() if s == top_score]
     else:
-        winner, top_score = "Nobody", 0
+        winners, top_score = [], 0
 
-    log(f"─── Game over! Winner: {winner} with {top_score} pts ───")
+    if not winners:
+        final_msg = "FINAL Nobody|0"
+        log("─── Game over! No players. ───")
+    elif len(winners) == 1:
+        winner = winners[0]
+        final_msg = f"FINAL {winner}|{top_score}"
+        log(f"─── Game over! Winner: {winner} with {top_score} pts ───")
+    else:
+        tied_names = ", ".join(winners)
+        final_msg = f"FINAL TIE|{tied_names}|{top_score}"
+        log(f"─── Game over! TIE between {tied_names} with {top_score} pts ───")
 
     # Send final leaderboard before announcing the winner
     with lock:
@@ -278,7 +289,7 @@ def run_game() -> None:
     log(f"  Final leaderboard: {lb}")
     broadcast(f"LEADERBOARD {lb}")
     time.sleep(1)  # let leaderboard render before FINAL
-    broadcast(f"FINAL {winner}|{top_score}")
+    broadcast(final_msg)
 
     # ── Close all connections and stop ───────────────────────────────────────
     time.sleep(2)   # let FINAL reach clients before we close
