@@ -258,14 +258,7 @@ def run_game() -> None:
                 player_score = scores.get(uname, 0)
             send(sock, f"SCORE {player_score}")
 
-        # Broadcast leaderboard after every question
-        with lock:
-            scores_snapshot = dict(scores)
-        lb = format_leaderboard(scores_snapshot)
-        broadcast(f"LEADERBOARD {lb}")
-        log(f"  Leaderboard: {lb}")
-
-        time.sleep(3)  # brief pause so clients can read leaderboard
+        time.sleep(2)  # brief pause before next question
 
     # ── End of game ──────────────────────────────────────────────────────────
     with lock:
@@ -277,6 +270,14 @@ def run_game() -> None:
         winner, top_score = "Nobody", 0
 
     log(f"─── Game over! Winner: {winner} with {top_score} pts ───")
+
+    # Send final leaderboard before announcing the winner
+    with lock:
+        scores_snapshot = dict(scores)
+    lb = format_leaderboard(scores_snapshot)
+    log(f"  Final leaderboard: {lb}")
+    broadcast(f"LEADERBOARD {lb}")
+    time.sleep(1)  # let leaderboard render before FINAL
     broadcast(f"FINAL {winner}|{top_score}")
 
     # ── Close all connections and stop ───────────────────────────────────────
