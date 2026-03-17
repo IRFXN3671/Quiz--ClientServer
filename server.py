@@ -23,13 +23,15 @@ import json
 import time
 import sys
 import os
+import random
 
 # ─── Configuration ────────────────────────────────────────────────────────────
 HOST          = "127.0.0.1"
 PORT          = 5000
-MIN_PLAYERS   = 2          # game starts when this many players have joined
-ANSWER_TIMEOUT = 10        # seconds to wait for answers per question
-QUESTIONS_FILE = os.path.join(os.path.dirname(__file__), "questions.json")
+MIN_PLAYERS      = 2          # game starts when this many players have joined
+ANSWER_TIMEOUT   = 10        # seconds to wait for answers per question
+QUESTIONS_PER_GAME = 5      # how many questions to pick each game
+QUESTIONS_FILE   = os.path.join(os.path.dirname(__file__), "questions.json")
 
 # ─── Shared State ─────────────────────────────────────────────────────────────
 lock          = threading.Lock()          # guards clients, scores, game_active
@@ -67,8 +69,13 @@ def broadcast(message: str, targets: dict = None) -> None:
 
 
 def load_questions() -> list:
+    """Load the full question pool and return a random sample of QUESTIONS_PER_GAME."""
     with open(QUESTIONS_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        pool = json.load(f)
+    count = min(QUESTIONS_PER_GAME, len(pool))
+    selected = random.sample(pool, count)
+    log(f"Selected {count} questions from pool of {len(pool)}.")
+    return selected
 
 
 def format_leaderboard(scores_snapshot: dict) -> str:

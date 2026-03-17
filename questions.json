@@ -1,52 +1,77 @@
 [
   {
     "question": "What is the capital of France?",
-    "options": {
-      "A": "Berlin",
-      "B": "Madrid",
-      "C": "Paris",
-      "D": "Rome"
-    },
+    "options": { "A": "Berlin", "B": "Madrid", "C": "Paris", "D": "Rome" },
     "answer": "C"
   },
   {
     "question": "Which planet is known as the Red Planet?",
-    "options": {
-      "A": "Venus",
-      "B": "Jupiter",
-      "C": "Saturn",
-      "D": "Mars"
-    },
+    "options": { "A": "Venus", "B": "Jupiter", "C": "Saturn", "D": "Mars" },
     "answer": "D"
   },
   {
     "question": "What is the largest ocean on Earth?",
-    "options": {
-      "A": "Atlantic Ocean",
-      "B": "Indian Ocean",
-      "C": "Pacific Ocean",
-      "D": "Arctic Ocean"
-    },
+    "options": { "A": "Atlantic Ocean", "B": "Indian Ocean", "C": "Pacific Ocean", "D": "Arctic Ocean" },
     "answer": "C"
   },
   {
     "question": "Who invented the telephone?",
-    "options": {
-      "A": "Thomas Edison",
-      "B": "Alexander Graham Bell",
-      "C": "Nikola Tesla",
-      "D": "James Watt"
-    },
+    "options": { "A": "Thomas Edison", "B": "Alexander Graham Bell", "C": "Nikola Tesla", "D": "James Watt" },
     "answer": "B"
   },
   {
     "question": "What is the chemical symbol for Gold?",
-    "options": {
-      "A": "Go",
-      "B": "Gd",
-      "C": "Gl",
-      "D": "Au"
-    },
+    "options": { "A": "Go", "B": "Gd", "C": "Gl", "D": "Au" },
     "answer": "D"
+  },
+  {
+    "question": "How many bones are in the adult human body?",
+    "options": { "A": "196", "B": "206", "C": "216", "D": "226" },
+    "answer": "B"
+  },
+  {
+    "question": "Which country is the largest by land area?",
+    "options": { "A": "Canada", "B": "USA", "C": "China", "D": "Russia" },
+    "answer": "D"
+  },
+  {
+    "question": "What is the speed of light (approx.) in km/s?",
+    "options": { "A": "150,000", "B": "200,000", "C": "300,000", "D": "400,000" },
+    "answer": "C"
+  },
+  {
+    "question": "Which element has the atomic number 1?",
+    "options": { "A": "Helium", "B": "Oxygen", "C": "Carbon", "D": "Hydrogen" },
+    "answer": "D"
+  },
+  {
+    "question": "In which year did World War II end?",
+    "options": { "A": "1943", "B": "1944", "C": "1945", "D": "1946" },
+    "answer": "C"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "options": { "A": "Michelangelo", "B": "Leonardo da Vinci", "C": "Raphael", "D": "Caravaggio" },
+    "answer": "B"
+  },
+  {
+    "question": "What is the smallest prime number?",
+    "options": { "A": "0", "B": "1", "C": "2", "D": "3" },
+    "answer": "C"
+  },
+  {
+    "question": "Which gas do plants absorb from the atmosphere?",
+    "options": { "A": "Oxygen", "B": "Nitrogen", "C": "Carbon Dioxide", "D": "Hydrogen" },
+    "answer": "C"
+  },
+  {
+    "question": "What is the currency of Japan?",
+    "options": { "A": "Yuan", "B": "Won", "C": "Baht", "D": "Yen" },
+    "answer": "D"
+  },
+  {
+    "question": "Which planet has the most moons?",
+    "options": { "A": "Jupiter", "B": "Mars", "C": "Saturn", "D": "Uranus" },
+    "answer": "C"
   }
 ]
