@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "options": {
+      "A": "Berlin",
+      "B": "Madrid",
+      "C": "Paris",
+      "D": "Rome"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": {
+      "A": "Venus",
+      "B": "Jupiter",
+      "C": "Saturn",
+      "D": "Mars"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "options": {
+      "A": "Atlantic Ocean",
+      "B": "Indian Ocean",
+      "C": "Pacific Ocean",
+      "D": "Arctic Ocean"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Who invented the telephone?",
+    "options": {
+      "A": "Thomas Edison",
+      "B": "Alexander Graham Bell",
+      "C": "Nikola Tesla",
+      "D": "James Watt"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the chemical symbol for Gold?",
+    "options": {
+      "A": "Go",
+      "B": "Gd",
+      "C": "Gl",
+      "D": "Au"
+    },
+    "answer": "D"
+  }
+]
